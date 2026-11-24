@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 560" width="100%" height="100%" style="background:#f8fafc; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <defs>
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="950" height="60" fill="#2563eb"/>
+  <text x="40" y="38" fill="#ffffff" font-size="20" font-weight="700">🛒 KiranaFlow</text>
+  <text x="200" y="36" fill="#bfdbfe" font-size="14">FMCG Retailer Portal — Review Order Lines</text>
+  <rect x="800" y="16" width="110" height="28" rx="6" fill="#1d4ed8"/>
+  <text x="855" y="34" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="600">Rahul Sharma</text>
+
+  <!-- Breadcrumbs & Title -->
+  <text x="40" y="95" fill="#64748b" font-size="13">Orders / New Order / Review</text>
+  <text x="40" y="125" fill="#0f172a" font-size="22" font-weight="700">Review Extracted Order Lines</text>
+  <text x="40" y="146" fill="#64748b" font-size="13">3 items extracted · 2 need review before placing order</text>
+
+  <!-- Row 1: Matched -->
+  <g transform="translate(40, 165)" filter="url(#cardShadow)">
+    <rect width="870" height="85" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5"/>
+    <!-- Status Badge -->
+    <rect x="18" y="14" width="85" height="24" rx="12" fill="#dcfce7"/>
+    <text x="60" y="30" text-anchor="middle" fill="#166534" font-size="12" font-weight="600">✅ Matched</text>
+    <!-- Raw text -->
+    <text x="115" y="31" fill="#1e293b" font-family="monospace" font-size="13" font-weight="600">"10 ctn parle-g"</text>
+    <!-- Mapped product -->
+    <text x="18" y="65" fill="#64748b" font-size="13">Mapped: <tspan fill="#0f172a" font-weight="600">Parle-G Biscuits</tspan> (SKU: PARLEG-CTN)</text>
+    <text x="420" y="65" fill="#64748b" font-size="13">Qty: <tspan fill="#0f172a" font-weight="600">10 carton</tspan></text>
+    <text x="600" y="65" fill="#64748b" font-size="13">Price: ₹480 / carton</text>
+    <text x="760" y="65" fill="#166534" font-size="15" font-weight="700">₹4,800.00</text>
+  </g>
+
+  <!-- Row 2: Needs Review (Typo) -->
+  <g transform="translate(40, 260)" filter="url(#cardShadow)">
+    <rect width="870" height="115" rx="10" fill="#fffbeb" stroke="#fcd34d" stroke-width="1.5"/>
+    <!-- Status Badge -->
+    <rect x="18" y="14" width="110" height="24" rx="12" fill="#fef3c7"/>
+    <text x="73" y="30" text-anchor="middle" fill="#92400e" font-size="12" font-weight="600">⚠️ Needs Review</text>
+    <!-- Raw text -->
+    <text x="140" y="31" fill="#1e293b" font-family="monospace" font-size="13" font-weight="600">"5 surf excell 1kg"</text>
+    <text x="320" y="30" fill="#b45309" font-size="12">ℹ️ Possible typo — did you mean "Surf Excel 1kg"? (Score 0.82)</text>
+
+    <!-- Suggestions Picker -->
+    <text x="18" y="62" fill="#475569" font-size="12" font-weight="600">Top Suggestions:</text>
+    <!-- Option 1 -->
+    <rect x="18" y="70" width="220" height="34" rx="6" fill="#eff6ff" stroke="#3b82f6"/>
+    <text x="28" y="86" fill="#1e40af" font-size="12" font-weight="600">Surf Excel 1kg</text>
+    <text x="28" y="98" fill="#60a5fa" font-size="10">₹220 / kg · SURF-1KG</text>
+    <!-- Option 2 -->
+    <rect x="250" y="70" width="220" height="34" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="260" y="86" fill="#334155" font-size="12" font-weight="500">Ariel Detergent 1kg</text>
+    <text x="260" y="98" fill="#94a3b8" font-size="10">₹240 / kg · ARIEL-1KG</text>
+    <!-- Option 3 -->
+    <rect x="480" y="70" width="220" height="34" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="490" y="86" fill="#334155" font-size="12" font-weight="500">Wheel Detergent 1kg</text>
+    <text x="490" y="98" fill="#94a3b8" font-size="10">₹85 / kg · WHEEL-1KG</text>
+  </g>
+
+  <!-- Row 3: Missing Quantity Flag -->
+  <g transform="translate(40, 385)" filter="url(#cardShadow)">
+    <rect width="870" height="80" rx="10" fill="#fffbeb" stroke="#fcd34d" stroke-width="1.5"/>
+    <rect x="18" y="14" width="110" height="24" rx="12" fill="#fef3c7"/>
+    <text x="73" y="30" text-anchor="middle" fill="#92400e" font-size="12" font-weight="600">⚠️ Needs Review</text>
+    <text x="140" y="31" fill="#1e293b" font-family="monospace" font-size="13" font-weight="600">"maggi"</text>
+    <text x="220" y="30" fill="#dc2626" font-size="12" font-weight="600">⚠️ Quantity missing — please specify quantity</text>
+
+    <text x="18" y="60" fill="#64748b" font-size="13">Matched: <tspan fill="#0f172a" font-weight="600">Maggi Noodles 70g</tspan></text>
+    <rect x="260" y="44" width="80" height="26" rx="4" fill="#fee2e2" stroke="#ef4444"/>
+    <text x="300" y="61" text-anchor="middle" fill="#b91c1c" font-size="12" font-weight="700">Enter Qty</text>
+  </g>
+
+  <!-- Bottom Action Bar & Safety Lock -->
+  <g transform="translate(40, 480)">
+    <rect width="870" height="60" rx="10" fill="#ffffff" stroke="#e2e8f0" filter="url(#cardShadow)"/>
+    <text x="24" y="35" fill="#dc2626" font-size="13" font-weight="600">⚠️ Safety Lock: Resolve 2 flagged lines above to enable order confirmation</text>
+
+    <!-- Disabled Confirm Button -->
+    <rect x="710" y="12" width="140" height="36" rx="8" fill="#94a3b8"/>
+    <text x="780" y="34" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="600">🔒 Place Order</text>
+  </g>
+</svg>
