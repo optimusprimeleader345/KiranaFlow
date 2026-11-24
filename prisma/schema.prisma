@@ -1,0 +1,79 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+enum Role {
+  RETAILER
+  ADMIN
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
+}
+
+enum MatchStatus {
+  MATCHED
+  NEEDS_REVIEW
+  NOT_FOUND
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  role         Role     @default(RETAILER)
+  createdAt    DateTime @default(now())
+  orders       Order[]
+}
+
+model Product {
+  id           String      @id @default(cuid())
+  sku          String      @unique
+  name         String
+  aliases      String
+  unit         String
+  pricePerUnit Float
+  category     String
+  createdAt    DateTime    @default(now())
+  orderLines   OrderLine[]
+}
+
+model Order {
+  id          String      @id @default(cuid())
+  retailer    User        @relation(fields: [retailerId], references: [id])
+  retailerId  String
+  status      OrderStatus @default(PENDING)
+  totalAmount Float       @default(0)
+  notes       String?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  lines       OrderLine[]
+}
+
+model OrderLine {
+  id          String      @id @default(cuid())
+  order       Order       @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  orderId     String
+  product     Product?    @relation(fields: [productId], references: [id])
+  productId   String?
+  rawText     String
+  quantity    Float?
+  unit        String?
+  matchStatus MatchStatus @default(NEEDS_REVIEW)
+  matchScore  Float?
+  suggestions String?
+  flagReason  String?
+  unitPrice   Float?
+  totalPrice  Float?
+  createdAt   DateTime    @default(now())
+}
